@@ -1,0 +1,93 @@
+/* .navbar{
+    background-color: rgba(27, 45, 94, 0.918);
+    background-image: linear-gradient(rgb(15, 15, 15),rgb(68, 68, 68), rgb(97, 97, 250),);
+    width: 100vw;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+ 
+
+.navbar-nav>li>a{
+
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-right:20px;
+  color: #fff;
+}
+
+button{
+    width: 150px;
+    margin-left: 190px;
+}
+.header{
+    width: 100vw;
+    height: 50px; 
+}
+.navbar-toggler {
+    padding: .20rem .50rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid white;
+
+    }
+
+    .nav-link{
+
+      color: #fff !important;
+    }
+
+
+.wrapper{
+      width: 100%;
+    position: absolute;
+    height: 100%;
+    background-color: #000;
+    clip-path: polygon(80% 0, 100% 0, 100% 50%, 100% 100%, 71% 100%);
+    transition: 1s all;
+}
+
+.navbar-brand{
+
+  color:#fff;
+  font-family: 'Allerta Stencil', sans-serif;
+  margin-bottom: 4px;
+  font-size: 27px;
+}
+
+.navbar-red:hover .wrapper{
+
+  clip-path: polygon(81% 0, 100% 0, 100% 50%, 100% 100%, 65% 100%);
+
+}
+
+.navbar-brand:hover{
+
+  color:#fff;
+  
+}
+
+.navbar-red{
+
+  background-color: rgb(18, 55, 110);
+  color: #fff;
+
+}
+
+.all-show{
+
+  z-index: 10;
+}
+
+span{
+    font-size: 17px;
+    font-weight: bold;
+    font-style: italic;
+    
+}
+ 
