@@ -2,7 +2,7 @@ import React from 'react';
 import './herocard.css'
 const HeroCard = () => {
   return (
-    <div className="mainBox">
+    <div className="mainBox ">
       
         <div className='logoBox'>
             <div className='imageBox'>

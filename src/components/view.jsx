@@ -30,9 +30,9 @@ class View extends Component {
          
     }
      deleted=(id)=>{
-        axios.delete(`https://json-server5.herokuapp.com/savedData/${id}`).then((res)=>{
-            this.setState({data:res.data})
-        }).then(()=>{location.reload()}).catch(err=>console.log(err));
+        axios.delete(`https://json-server5.herokuapp.com/savedData/${id}`).then(()=>{
+            this.getSavedData()
+        }).catch(err=>console.log(err));
 
         // location.reload()
      }

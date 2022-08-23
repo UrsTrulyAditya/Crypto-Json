@@ -4,12 +4,10 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Link } from 'react-router-dom';  
-import TablePaginationDemo from './pagination';
-
+import { Link } from 'react-router-dom';   
 import Button from '@mui/material/Button';
 import './table.css';
-import axios from "axios";
+import axios from "axios"; 
 
 
 const DynamicTable = () => {
@@ -24,16 +22,14 @@ const DynamicTable = () => {
             .get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
             .then((res) => {
                 setData(res.data);
+                setSavedData(res.data.slice(0,10))
 
             })
             .catch((error) => {
                 console.log(error);
             });
 
-        axios.get("https://json-server5.herokuapp.com/savedData").then((res) => {
-            console.log(res.data);
-            setSavedData(res.data)
-        }).catch(err => console.log(err));
+       
 
     }, []);
 
@@ -48,6 +44,8 @@ const DynamicTable = () => {
         axios.post("https://json-server5.herokuapp.com/savedData", { name, symbol, market_cap, current_price }).then(() => {
             // console.log("done")
         }).catch((err) => console.log(err));
+
+        alert("crypto has been saved")
 
         
         
@@ -84,7 +82,7 @@ const DynamicTable = () => {
                 </thead>
                 <TableBody>
 
-                    {filteredData.slice(0, 5).map((row) => (
+                    {filteredData.slice(0, 15).map((row) => (
             <TableRow className="row" key={row.id}>
                 <TableCell className="cell text-light" align="center" component="th" scope="row">
                     {row.name}
@@ -111,9 +109,10 @@ const DynamicTable = () => {
             </TableRow>
         ))}
     </TableBody>
+   
 </Table>
 
-        <TablePaginationDemo/>
+       
         </div>
         </>
     )
