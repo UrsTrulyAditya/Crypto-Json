@@ -55,6 +55,9 @@ class View extends Component {
                             {data.map((row) => (
                                 <TableRow className="row" key={row.id}>
                                     <TableCell className="text-light" align="center" component="th" scope="row">
+                                       <img className='logo' src={row.image} alt="logo" />
+                                    </TableCell>
+                                    <TableCell className="text-light" align="center" component="th" scope="row">
                                         {row.name}
                                     </TableCell>
                                     <TableCell align="center" className="text-light">
@@ -64,12 +67,12 @@ class View extends Component {
                                     </TableCell>
                                     <TableCell className="text-light" align="center">${row.market_cap}</TableCell>
 
+                                    <TableCell align="center" className="text-light">${row.current_price.toFixed(2)}
+                                        <p>USD</p>
+                                    </TableCell>
                                     <TableCell>
 
                                         <button className="view-btn" onClick={()=>this.deleted(row.id)}>DELETE</button>
-                                    </TableCell>
-                                    <TableCell align="center" className="text-light">${row.current_price.toFixed(2)}
-                                        <p>USD</p>
                                     </TableCell>
 
                                 </TableRow>

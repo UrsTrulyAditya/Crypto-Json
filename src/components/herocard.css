@@ -1,0 +1,15 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
+
+.images{
+    width: 60px;
+     
+}
+
+.imgbox{
+    background-color:wheat;
+    border: 1px solid red;
+}
+
+.cardLogo{
+    width: 120px;
+}

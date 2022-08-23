@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './header.css';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+    const [btn,setbtn]=useState(false);
+    const clickedsave=()=>{
+        setbtn(true);
+    }
+    const clickedhome=()=>{
+        setbtn(false);
+    }
+    
     return (
 
 
@@ -23,12 +31,15 @@ const Header = () => {
                      
                        
                 </div>
-                <Link to="/view">
-
-                            <button className='btn btn-outlined-light text-light'>
+                
+                    {!btn && <Link to="/view"><button onClick={clickedsave} className='btn btn-outlined-light text-light'>
                                 Saved Crypto
-                            </button>
-                </Link>
+                            </button></Link>}
+                            {btn && <Link to="/"><button onClick={clickedhome} className='btn btn-outlined-light text-light'>
+                                Back to home 
+                            </button></Link>}
+                             
+                 
             </div>
         </nav>
 
