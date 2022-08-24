@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const HeroCard = () => {
     const [data, setData] = useState([]);
-
+    const [trendData,setTrendData]=useState([]);
     useEffect(() => {
         axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false").then((res) => {
 
@@ -14,15 +14,11 @@ const HeroCard = () => {
             setData(res.data);
             //    console.log(res.data)
         })
+        
+        
     }, [])
 
-    // const imgData=[];
-
-    // data.map((each)=>{
-    //     imgData.push(each.image)
-    // })
-
-    // console.log(imgData)
+     
 
     return (
         <>
@@ -31,7 +27,7 @@ const HeroCard = () => {
 
 
                     {data.map((each) => {
-                        // console.log(each);
+                        // console.log(each.item);
                         return (
                             <div className='logoBox' key={each.id}>
 
@@ -39,7 +35,7 @@ const HeroCard = () => {
 
                                 <div className='text-center mt-1 mb-1'>
                                     <h1>{each.name}</h1>
-                                    <span className='price'> current price</span><h2>{each.current_price}USD</h2>
+                                    <span className='price'> Rank {each.market_cap_rank }</span><h2>{each.high_24h} high</h2>
                                 </div>
 
                             </div>

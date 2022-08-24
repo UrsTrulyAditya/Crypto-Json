@@ -46,7 +46,7 @@ class View extends Component {
                 
                 <div className="TableContainer" component={Paper}>
                     <div className="heading">
-                        SAVED DATA TABLE
+                        SAVED CRYPTO
 
                     </div>
                     <Table className="Table" aria-label="simple table" stickyHeader>
@@ -72,7 +72,7 @@ class View extends Component {
                                     </TableCell>
                                     <TableCell>
 
-                                        <button className="view-btn" onClick={()=>this.deleted(row.id)}>DELETE</button>
+                                        <button className="view-btn delBtn" onClick={()=>this.deleted(row.id)}>DELETE</button>
                                     </TableCell>
 
                                 </TableRow>

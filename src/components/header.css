@@ -27,6 +27,7 @@ button{
 .header{
     width: 100vw;
     height: 50px; 
+    position: fixed;
 }
 .navbar-toggler {
     padding: .20rem .50rem;

@@ -4,7 +4,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Link } from 'react-router-dom';   
+import { Link,useNavigate } from 'react-router-dom';   
 import Button from '@mui/material/Button';
 import './table.css';
 import axios from "axios"; 
@@ -14,6 +14,7 @@ const DynamicTable = () => {
     const [data, setData] = React.useState([]);
     const [saveddata, setSavedData] = React.useState([]);
       const [search, setSearch] = React.useState('');
+      const navigate=useNavigate();
  
     React.useEffect(() => {
 
@@ -65,8 +66,8 @@ const DynamicTable = () => {
             </div>
             <Table className="Table" aria-label="simple table" stickyHeader>
                 <thead>
-                    <TableRow sx={{ background: "#f0ebfc", color: "#615c6d" }}>
-                    <TableCell align="center"> Crypto  </TableCell>
+                    <TableRow sx={{ background: "gold", color: "black"}}>
+                    <TableCell align="center" className="tablehead"> Crypto  </TableCell>
                         <TableCell align="center"> NAME</TableCell>
                         <TableCell align="center">SYMBOL</TableCell>
                         <TableCell align="center">MARKET CAP</TableCell>
@@ -80,7 +81,7 @@ const DynamicTable = () => {
                 <TableBody>
 
                     {filteredData.slice(0, 15).map((row) => (
-            <TableRow className="row" key={row.id}>
+            <TableRow className="row-each" key={row.id} onClick={()=>navigate(`/crypto/${row.id}`)} >
                 <TableCell className="cell text-light" align="center" component="th" scope="row">
                     <img className='logo' src={row.image} />
                 </TableCell>

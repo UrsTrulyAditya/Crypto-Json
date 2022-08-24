@@ -7,8 +7,8 @@
     text-align: center;
     font-style: 600;
 }
-.row:hover{
-    background-color: #5f5f63;
+.row-each:hover{
+    background-color:  rgb(18, 55, 110);
     opacity: 0.9;
     
 }
@@ -16,7 +16,7 @@
     width: 100%;
     text-align: center;
     background-color: #f0ebfc;
-    color: #79797a;
+    color: #000000;
     height: 55px;
     display: flex;
     font-weight: 500;
@@ -63,6 +63,7 @@
      
      
 }
+ 
 .price{
     font-style: normal;
     color: gold;
@@ -167,9 +168,9 @@ input:focus {
 .view-btn{
     background-image: linear-gradient(
         -225deg,
-        #942dc4 0%,
-        #6417c2 48%,
-        #440ece 100%
+        #2dc435 0%,
+        #23b80f 48%,
+        #079202 100%
       );
     border-radius: 5px;
     padding: 5px;
@@ -181,6 +182,14 @@ input:focus {
     margin-left: 15px;
 }
 
+.delBtn{
+    background-image: linear-gradient(
+        -225deg,
+        #df2620 0%,
+        #c21717 48%,
+        #b90505 100%
+      );
+}
  
 .backBtn{
     text-align: center;
