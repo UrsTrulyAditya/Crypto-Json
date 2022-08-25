@@ -3,10 +3,13 @@ import './herocard.css'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const HeroCard = () => {
     const [data, setData] = useState([]);
     const [trendData,setTrendData]=useState([]);
+    const navigate=useNavigate();
+
     useEffect(() => {
         axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false").then((res) => {
 
@@ -29,9 +32,9 @@ const HeroCard = () => {
                     {data.map((each) => {
                         // console.log(each.item);
                         return (
-                            <div className='logoBox' key={each.id}>
+                            <div className='logoBox' key={each.id} onClick={()=>navigate(`crypto/${each.id}`)}>
 
-                                <img src={each.image} alt='image' />
+                                <img className='imgCarousel' src={each.image} alt='image'  />
 
                                 <div className='text-center mt-1 mb-1'>
                                     <h1>{each.name}</h1>
@@ -52,5 +55,4 @@ const HeroCard = () => {
 }
 
 export default HeroCard
-
 

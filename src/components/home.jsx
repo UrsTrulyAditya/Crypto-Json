@@ -1,12 +1,14 @@
-import React from 'react' 
+import React from 'react'
+import Header from './header';
 import HeroCard from './heroCard';
-import DynamicTable from './table'; 
+import DynamicTable from './table';
 const Home = () => {
   return (
-    <div >
-     <HeroCard/>
-        <DynamicTable />
-    </div>
+    <>
+      <Header/>
+      <HeroCard />
+      <DynamicTable />
+    </>
   )
 }
 

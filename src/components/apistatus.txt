@@ -1,16 +1,3 @@
-import * as React from 'react';
-import { Audio, Circles, ThreeCircles } from 'react-loader-spinner'
-
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Link, useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import './table.css';
-import axios from "axios";
-
 const apiStatusConstant = {
     initial: 'initial',
     inProgress: 'inProgress',
@@ -18,52 +5,22 @@ const apiStatusConstant = {
     failure: 'failure',
 }
 
-const DynamicTable = () => {
-    const [apiStatus, setApiStatus] = React.useState(apiStatusConstant.initial)
-    const [data, setData] = React.useState([]);
-    const [saveddata, setSavedData] = React.useState([]);
-    const [search, setSearch] = React.useState('');
-    const navigate = useNavigate();
 
-    React.useEffect(() => {
-        setApiStatus(apiStatusConstant.inProgress);
-        axios
-            .get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
-            .then((res) => {
-                setData(res.data);
-                setSavedData(res.data.slice(0, 10))
-                setApiStatus(apiStatusConstant.success)
-            })
-            .catch((error) => {
-                console.log(error);
+const [apiStatus, setApiStatus] = React.useState(apiStatusConstant.initial)
+    
+
+    setApiStatus(apiStatusConstant.success)
+
+
+    
                 setApiStatus(apiStatusConstant.failure)
-            });
 
 
 
-    }, []);
-
-    const handleChange = (event) => {
-        setSearch(event.target.value);
-    }
-
-    const filteredData = data.filter(each => each.name.toLowerCase().includes(search.toLowerCase()))
-
-    const selected = (name, symbol, market_cap, current_price, image) => {
-        // console.log("clicked")
-        axios.post("https://json-server5.herokuapp.com/savedData", { name, symbol, market_cap, current_price, image }).then(() => {
-            // console.log("done")
-        }).catch((err) => console.log(err));
-
-        alert("crypto has been saved");
-
-
-    }
-
-    const failureView=()=>{
+ const failureView=()=>{
         return (
-            <div className='container'>
-                <h1 className='text-center'>Something went wrong</h1>
+            <div>
+
             </div>
         )
     }
@@ -152,23 +109,3 @@ const DynamicTable = () => {
 
         )
     }
-
-    const renderTable=()=>{
-        switch (apiStatus) {
-            case apiStatusConstant.success:
-                return succesView();
-            case apiStatusConstant.inProgress:
-                return inProgress();
-            case apiStatusConstant.failure:
-                return failureView();
-            
-        
-            default:
-                return null;
-        }
-    }
-    return (
-        renderTable()
-    )
-}
-export default DynamicTable;
