@@ -65,7 +65,7 @@ const CryptoDetailPage = () => {
         return (
             <>
             <Header/>
-            < div className='container mt-5 mb-5'>
+            < div className='container pb-5 mt-5 mb-5'>
             <div className='row'>
                 <div className='col-4 text-white text-left'>
                     <div>

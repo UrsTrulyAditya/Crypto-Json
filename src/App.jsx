@@ -8,9 +8,9 @@ import './App.css';
 import CryptoDetailPage from './components/crptoDetailsPage';
 function App() {
   return (
+    <div>
     <BrowserRouter>
     
-    {/* <Header /> */}
      
     
 
@@ -21,6 +21,7 @@ function App() {
     </Routes>
      
     </BrowserRouter>
+      </div>
   );
 }
 

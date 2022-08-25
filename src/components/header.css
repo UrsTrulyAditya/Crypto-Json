@@ -1,14 +1,4 @@
-/* .navbar{
-    background-color: rgba(27, 45, 94, 0.918);
-    background-image: linear-gradient(rgb(15, 15, 15),rgb(68, 68, 68), rgb(97, 97, 250),);
-    width: 100vw;
-    height: 85px;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    
-} */
-
+ 
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
  
 
@@ -75,8 +65,9 @@ button{
 
 .navbar-red{
 
-  background-color: rgb(18, 55, 110);
+  background-color: rgb(78, 6, 72);
   color: #fff;
+  
 
 }
 
