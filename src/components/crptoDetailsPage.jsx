@@ -74,7 +74,7 @@ const CryptoDetailPage = () => {
                     <div className='row'>
                         <div className='col-12 text-white text-left d-flex flex-column'>
                             <div>
-                                <img src={img} className="imgDetail" alt="logo" />
+                                <img src={img} className="imgDetail mb-4" alt="logo" />
 
                             </div>
 
