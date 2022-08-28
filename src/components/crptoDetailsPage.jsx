@@ -3,7 +3,9 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { ThreeCircles, ThreeDots } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom'
-import Header from './header';
+import { Doughnut } from 'react-chartjs-2';
+import Chart from './charts';
+import { CircularProgress } from '@mui/material';
 
 const apiStatusConstant = {
     initial: 'initial',
@@ -28,9 +30,6 @@ const CryptoDetailPage = () => {
                 setcoin(res.data);
                 setImage(res.data.image.large);
                 setApiStatus(apiStatusConstant.success)
-
-
-
             }).catch((err) => console.log(err));
             setApiStatus(apiStatusConstant.failure)
 
@@ -40,79 +39,88 @@ const CryptoDetailPage = () => {
         getCoins();
     }, [])
 
-    const inProgress = () => {
+    const progressView = () => {
         return (
-            <ThreeCircles
-                height="80"
-                width="80"
-                radius="9"
-                color='green'
-                ariaLabel='three-dots-loading'
-                wrapperStyle
-                wrapperClass
-            />
+            <div className='text-center'>
+
+                <CircularProgress
+                    style={{ color: "rgb(53, 162, 235)" }}
+                    size={250}
+                    thickness={1}
+                />
+            </div>
         )
     }
 
-    const failureView=()=>{
+    const failureView = () => {
         return (
             <div className='container'>
-                <h1 className='text-center'>Something went wrong</h1>
+                <div className='text-center'>
+
+                    <CircularProgress
+                        style={{ color: "rgb(53, 162, 235)" }}
+                        size={250}
+                        thickness={1}
+                    />
+                </div>
             </div>
         )
     }
-    const successView=()=>{
+    const successView = () => {
         return (
             <>
-            <Header/>
-            < div className='container pb-5 mt-5 mb-5'>
-            <div className='row'>
-                <div className='col-4 text-white text-left'>
-                    <div>
-                        <img src={img} className="imgDetail" alt="logo" />
 
-                    </div>
+                <div className='container pb-5 mt-5 mb-5'>
+                    <div className='row'>
+                        <div className='col-12 text-white text-left d-flex flex-column'>
+                            <div>
+                                <img src={img} className="imgDetail" alt="logo" />
 
-                    <div>
-                        <p>Coin Info</p>
-                        <h1>{coins.name}</h1>
-                        <p> {coins.name} is the first successful internet money based on peer-to-peer technology,
-                            whereby no central bank or authority is involved in the transaction and
-                            production of the {coins.name} currency.
-                            The source code is available publicly as an open source project,
-                            anybody can look at it and be part of the developmental process.</p>
-                        <p>Rank : <span className='text-info'>{coins.market_cap_rank}</span></p>
-                        <span className='text-info'>{coins.price_change_24h}</span>
-                        <span>{coins.current_price}</span>
+                            </div>
+
+                            <div id="details">
+                                <p>Coin Info</p>
+                                <h1 className='text-info'>{coins.name}</h1>
+
+                                <p> {coins.name} is the first successful internet money based on peer-to-peer technology,
+                                    whereby no central bank or authority is involved in the transaction and
+                                    production of the {coins.name} currency.
+                                    The source code is available publicly as an open source project,
+                                    anybody can look at it and be part of the developmental process.</p>
+                                <p>Rank : <span className='text-info'>{coins.market_cap_rank}</span></p>
+                                <span className='text-info'>{coins.price_change_24h}</span>
+                                <span>{coins.current_price}</span>
+                            </div>
+                        </div>
+                        <div className='col-12 d-flex flex-column align-items-center'>
+
+                            <Chart />
+                        </div>
 
                     </div>
                 </div>
-                <div className='col-8'>
 
-                </div>
 
-            </div>
-        </div>
-        </>
+            </>
 
         )
     }
 
-    const renderoutput=()=>{
+    const renderoutput = () => {
         switch (apiStatus) {
             case apiStatusConstant.success:
                 return successView();
             case apiStatusConstant.inProgress:
-                return inProgress();        
-            case apiStatusConstant.inProgress:
-                return failureView();        
-        
+                return progressView();
+            case apiStatusConstant.failure:
+                return failureView();
+
             default:
                 return null;
         }
     }
 
-    return ( 
+    return (
         renderoutput()
     )
 }

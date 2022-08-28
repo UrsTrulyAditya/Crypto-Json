@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
 import './header.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Header = () => {
-    const [btn,setbtn]=useState(false);
+    const [btn,setbtn]=useState(false); 
+    const location=useLocation();
+     
+     
+    // if(location.pathname=="/"){
+    //     setbtn(true);
+    // }else{
+    //     setbtn(false);
+    // }
     const clickedsave=()=>{
         setbtn(true);
     }
+
     const clickedhome=()=>{
         setbtn(false);
     }
-    
+   
     return (
 
 

@@ -3,7 +3,7 @@ import './herocard.css'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HeroCard = () => {
     const [data, setData] = useState([]);
@@ -25,6 +25,13 @@ const HeroCard = () => {
 
     return (
         <>
+        <div className='text-center mt-5'>
+            <Link to="/">
+
+            <h2 className='text-warning name'>Crypto Tracker</h2>
+            </Link>
+            <p className='text-light h3'>Get all information about your favorite crypto currency</p>
+        </div>
             <div className="mainBox ">
                 <div className='mainBox-track'>
 

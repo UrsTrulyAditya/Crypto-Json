@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
- 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap");
+
 *{
   box-sizing: border-box;
   margin: 0;
@@ -16,4 +17,17 @@ a{
     width: 155px;
   }
 
-  
+#details{
+  display: flex;
+  flex-direction: column;
+   
+}
+
+.name{
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 55px;
+} 
+#details p{
+  font-size: 25px;
+}

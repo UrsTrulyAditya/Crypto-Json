@@ -7,8 +7,8 @@ import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 
 import './table.css'
-import axios from 'axios';
-import Header from './header';
+import axios from 'axios'; 
+import HeroCard from './heroCard';
 
 
 class View extends Component {
@@ -42,8 +42,9 @@ class View extends Component {
 
         return (
              
-            <div>
-                
+            <>
+                 
+                <HeroCard/>
                 <div className="TableContainer" component={Paper}>
                     <div className="heading">
                         SAVED CRYPTO
@@ -86,7 +87,7 @@ class View extends Component {
                 </div>
 
 
-            </div>
+            </>
         )
 
     }

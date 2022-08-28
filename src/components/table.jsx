@@ -10,6 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import './table.css';
 import axios from "axios";
+import { CircularProgress } from '@mui/material';
 
 const apiStatusConstant = {
     initial: 'initial',
@@ -69,22 +70,22 @@ const DynamicTable = () => {
     }
     const inProgress = () => {
         return (
-            <ThreeCircles
-                height="80"
-                width="80"
-                radius="9"
-                color='green'
-                ariaLabel='three-dots-loading'
-                wrapperStyle
-                wrapperClass
+            <div className='text-center col-12'>
+
+            <CircularProgress
+            style={{ color: "gold" }}
+            size={250}
+            thickness={1}
             />
+            </div>
+            
         )
     }
     const succesView = () => {
         return (
             <>
 
-                <div className="TableContainer container text-center" component={Paper}>
+                <div className=" TableContainer container text-center" component={Paper}>
                     <div className="searchBox">
                         <p className='text-light'>Stock Details Table</p>
 
@@ -113,8 +114,8 @@ const DynamicTable = () => {
                         <TableBody>
                             {filteredData.slice(0, 15).map((row) => (
 
-                                <TableRow className="row-each" key={row.id} onClick={() => navigate(`/crypto/${row.id}`)} >
-                                    <TableCell className="cell text-light" align="center" component="th" scope="row">
+                                <TableRow className="row-each" key={row.id} >
+                                    <TableCell className="cell text-light" onClick={() => navigate(`/crypto/${row.id}`)} align="center" component="th" scope="row">
                                         <img className='logo' src={row.image} />
                                     </TableCell>
                                     <TableCell className="cell text-light" align="center" component="th" scope="row">

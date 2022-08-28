@@ -5,7 +5,7 @@ import DynamicTable from './table';
 const Home = () => {
   return (
     <>
-      <Header/>
+       
       <HeroCard />
       <DynamicTable />
     </>
